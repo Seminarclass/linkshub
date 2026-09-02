@@ -365,6 +365,8 @@ input, textarea { font: inherit; }
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 .cat-card::before {
   content: ''; position: absolute; inset: 0;

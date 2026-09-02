@@ -58,21 +58,30 @@
   // ----- Render category grid -----
   const catGrid = document.getElementById('catGrid');
   catGrid.innerHTML = DATA.map((c, i) => `
-    <div class="cat-card" data-slug="${c.slug}" style="animation: fadeUp 0.4s var(--ease) ${i * 0.02}s backwards">
+    <a href="#${c.slug}" class="cat-card" data-slug="${c.slug}" style="animation: fadeUp 0.4s var(--ease) ${i * 0.02}s backwards">
       <div class="cat-icon">${c.icon}</div>
       <div class="cat-info">
         <div class="cat-name">${c.name}</div>
         <div class="cat-count">${c.count} domains</div>
       </div>
       <svg class="cat-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-    </div>
+    </a>
   `).join('');
 
   // ----- Click handlers -----
   catGrid.addEventListener('click', (e) => {
     const card = e.target.closest('.cat-card');
     if (!card) return;
+    e.preventDefault();
     navigateToCategory(card.dataset.slug);
+  });
+  // Also bind directly to each card (belt and suspenders)
+  catGrid.querySelectorAll('.cat-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navigateToCategory(card.dataset.slug);
+    });
   });
   document.querySelectorAll('[data-nav="home"]').forEach(el => {
     el.addEventListener('click', (e) => { e.preventDefault(); navigateHome(); });
