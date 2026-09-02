@@ -1,6 +1,5 @@
 node_modules/
-data/
+.DS_Store
 *.log
 .env
-.DS_Store
-dist/
+data/
