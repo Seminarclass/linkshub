@@ -1,0 +1,29 @@
+{
+  "name": "linkshub",
+  "version": "1.0.0",
+  "description": "A curated directory of 5,000+ websites with autonomous topic-wise domain discovery & hourly URL intelligence",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prerender": "node scripts/prerender.mjs",
+    "sitemap": "node scripts/sitemap.mjs",
+    "intelligence:stats": "curl -s localhost:3001/api/intelligence/stats | python3 -m json.tool",
+    "intelligence:cycle": "node server/intelligence/run.mjs",
+    "intelligence:seed": "node server/intelligence/seed.mjs",
+    "intelligence:serve": "node server/intelligence/server.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0"
+  },
+  "license": "MIT"
+}
