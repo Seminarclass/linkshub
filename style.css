@@ -89,8 +89,8 @@ input, textarea { font: inherit; }
 
 /* ====================== Top bar ====================== */
 .topbar {
-  display: flex; align-items: center; gap: 16px;
-  padding: 18px 32px;
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 20px;
   position: sticky; top: 0; z-index: 50;
   background: var(--bg-elev);
   backdrop-filter: blur(20px);
@@ -127,12 +127,12 @@ input, textarea { font: inherit; }
 }
 
 .search-box {
-  flex: 1; max-width: 480px; margin: 0 auto;
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 16px;
+  flex: 1; max-width: 360px; margin: 0 auto;
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   transition: all .25s var(--ease);
 }
 .search-box:focus-within {
@@ -142,16 +142,16 @@ input, textarea { font: inherit; }
 .search-box svg { color: var(--text-dim); flex-shrink: 0; }
 .search-box input {
   flex: 1; border: 0; outline: none; background: transparent;
-  color: var(--text); font-size: 14px;
+  color: var(--text); font-size: 13px;
 }
 .search-box input::placeholder { color: var(--text-muted); }
 .search-box kbd {
-  padding: 3px 8px;
+  padding: 2px 6px;
   background: var(--bg-soft);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 5px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-dim);
 }
 
@@ -584,6 +584,9 @@ input, textarea { font: inherit; }
   padding-left: 20px;
   padding-right: 20px;
   animation: fadeIn .2s var(--ease);
+}
+.search-overlay[hidden] {
+  display: none !important;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .search-modal {
